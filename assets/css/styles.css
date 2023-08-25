@@ -568,6 +568,17 @@ body.dark-theme{
     max-width: 450px;
 }
 
+.blog__link{
+    color: var(--text-color-light);
+}
+
+.blog__link:hover{
+    color: var(--text-color);
+}
+
+.blog__link:visited{
+    color: var(--text-color);
+}
 
 .blog__sub-subtitle,
 .blog__subtitle{
