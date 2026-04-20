@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <!-- Google tag (gtag.js) -->
+     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NJMY5MRXY"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -11,200 +10,1053 @@
 
         gtag('config', 'G-4NJMY5MRXY');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="1;url=https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17" />
-    <!-- Icons & CSS -->
-    <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    
-    <title>Shreyas Chavhan - Blog | A technical blog on all things bug bounty, cybersecurity, web3.0 / smart-contract
-        securty and development.</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shreyas Chavhan — Offensive Security & AI/LLM Security Researcher</title>
+<meta name="description" content="Offensive security researcher. Authored CVE-2026-5189. Specializes in AI/LLM agent security." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<script>
+/*EDITMODE-BEGIN*/const TWEAKS={
+  "accent":"coral",
+  "density":"comfortable",
+  "heroVariant":"terminal",
+  "showCveBanner":true,
+  "mono":"JetBrains Mono"
+}/*EDITMODE-END*/;
+</script>
+
+<style>
+  :root {
+    --bg: oklch(0.14 0.01 60);
+    --bg-elev: oklch(0.17 0.012 60);
+    --bg-sunk: oklch(0.11 0.008 60);
+    --fg: oklch(0.96 0.005 80);
+    --fg-dim: oklch(0.70 0.01 70);
+    --fg-faint: oklch(0.48 0.01 70);
+    --line: oklch(0.25 0.01 60);
+    --line-bright: oklch(0.35 0.012 60);
+    --accent: oklch(0.72 0.17 28);   /* coral */
+    --accent-dim: oklch(0.42 0.10 28);
+    --link: oklch(0.80 0.10 200);
+    --ok: oklch(0.78 0.13 145);
+    --crit: oklch(0.68 0.20 25);
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+
+    --w: 1120px;
+    --gutter: clamp(20px, 4vw, 40px);
+  }
+
+  [data-accent="cyan"]   { --accent: oklch(0.78 0.14 210); --accent-dim: oklch(0.45 0.10 210); }
+  [data-accent="lime"]   { --accent: oklch(0.82 0.17 130); --accent-dim: oklch(0.48 0.10 130); }
+  [data-accent="amber"]  { --accent: oklch(0.80 0.16 70);  --accent-dim: oklch(0.48 0.10 70);  }
+  [data-accent="violet"] { --accent: oklch(0.74 0.17 295); --accent-dim: oklch(0.45 0.10 295); }
+  [data-accent="bone"]   { --accent: oklch(0.96 0.005 80); --accent-dim: oklch(0.60 0.005 80); }
+
+  [data-density="dense"] { --row-pad: 10px; --sec-pad: 80px; }
+  [data-density="comfortable"] { --row-pad: 16px; --sec-pad: 120px; }
+  [data-density="roomy"] { --row-pad: 24px; --sec-pad: 160px; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01","cv11";
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { color: var(--accent); }
+
+  .mono { font-family: var(--font-mono); font-feature-settings: "zero","ss02"; }
+  .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+
+  /* -------- Layout -------- */
+  .shell { max-width: var(--w); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* -------- Nav -------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: color-mix(in oklch, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; gap: 20px;
+    height: 56px;
+    font-family: var(--font-mono); font-size: 13px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; color: var(--fg); }
+  .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 12px var(--ok); }
+  .nav-brand b { font-weight: 600; letter-spacing: -0.01em; }
+  .nav-brand .sep { color: var(--fg-faint); }
+  .nav-spacer { flex: 1; }
+  .nav a.link { color: var(--fg-dim); padding: 4px 8px; border-radius: 4px; }
+  .nav a.link:hover { color: var(--fg); background: var(--bg-elev); }
+  .nav .cta {
+    color: var(--bg); background: var(--fg);
+    padding: 6px 12px; border-radius: 4px; font-weight: 600;
+  }
+  .nav .cta:hover { background: var(--accent); color: var(--bg); }
+
+  @media (max-width: 720px) { .nav .link.hide-sm { display: none; } }
+
+  /* -------- CVE Banner -------- */
+  .banner {
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(to right, color-mix(in oklch, var(--accent) 8%, var(--bg)), var(--bg));
+    font-family: var(--font-mono); font-size: 12.5px;
+  }
+  .banner-inner { display: flex; align-items: center; gap: 16px; height: 36px; color: var(--fg-dim); }
+  .banner .tag {
+    background: var(--accent); color: var(--bg);
+    padding: 2px 8px; border-radius: 3px; font-weight: 700; letter-spacing: 0.02em;
+    font-size: 10.5px;
+  }
+  .banner .blink { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 1.8s ease-in-out infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .banner .arrow { margin-left: auto; color: var(--accent); }
+
+  /* -------- Hero -------- */
+  .hero { padding: 80px 0 40px; }
+  .hero .kicker {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--fg-faint); letter-spacing: 0.08em; text-transform: uppercase;
+    display: flex; gap: 10px; align-items: center; margin-bottom: 28px;
+  }
+  .hero .kicker .bar { width: 24px; height: 1px; background: var(--fg-faint); }
+
+  .hero h1 {
+    font-family: var(--font-sans);
+    font-size: clamp(40px, 6.6vw, 80px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    margin: 0 0 28px;
+    max-width: 14ch;
+  }
+  .hero h1 .it { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--fg-dim); }
+
+  .hero .lede {
+    max-width: 54ch; font-size: 18px; color: var(--fg-dim);
+    line-height: 1.5; margin: 0 0 36px;
+  }
+  .hero .lede em { color: var(--fg); font-style: normal; font-weight: 500; }
+
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: end; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .hero-meta {
+    font-family: var(--font-mono); font-size: 13px;
+    border-left: 1px solid var(--line-bright);
+    padding: 4px 0 4px 20px;
+    display: grid; gap: 10px;
+  }
+  .hero-meta .row { display: grid; grid-template-columns: 100px 1fr; gap: 12px; color: var(--fg-dim); }
+  .hero-meta .row .k { color: var(--fg-faint); }
+  .hero-meta .row .v { color: var(--fg); }
+  .hero-meta .row .v .ok { color: var(--ok); }
+  .hero-meta .row .v .critical { color: var(--accent); font-weight: 600; }
+
+  /* Terminal (hero variant) */
+  .terminal {
+    background: var(--bg-sunk);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-family: var(--font-mono); font-size: 13px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 oklch(0.20 0.01 60), 0 20px 40px -20px rgba(0,0,0,.6);
+  }
+  .terminal .tbar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px;
+    background: var(--bg-elev); border-bottom: 1px solid var(--line);
+    font-size: 11.5px; color: var(--fg-faint);
+  }
+  .terminal .tbar .d { width: 10px; height: 10px; border-radius: 50%; background: var(--line-bright); }
+  .terminal .tbar .d.r { background: oklch(0.6 0.14 25); }
+  .terminal .tbar .d.y { background: oklch(0.78 0.14 80); }
+  .terminal .tbar .d.g { background: oklch(0.72 0.14 140); }
+  .terminal .tbar .t { margin-left: 10px; }
+  .terminal .tbody { padding: 20px 22px; color: var(--fg-dim); line-height: 1.75; }
+  .terminal .prompt { color: var(--ok); }
+  .terminal .flag { color: var(--accent); }
+  .terminal .com { color: var(--fg-faint); }
+  .terminal .val { color: var(--fg); }
+  .terminal .cursor { display: inline-block; width: 8px; height: 1em; background: var(--fg); vertical-align: -2px; animation: curs 1s steps(2) infinite; }
+  @keyframes curs { 50% { opacity: 0; } }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn {
+    font-family: var(--font-mono); font-size: 13px;
+    padding: 10px 16px; border-radius: 4px;
+    border: 1px solid var(--line-bright);
+    background: var(--bg-elev); color: var(--fg);
+    display: inline-flex; align-items: center; gap: 8px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary {
+    background: var(--fg); color: var(--bg); border-color: var(--fg);
+    font-weight: 600;
+  }
+  .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .btn svg { width: 14px; height: 14px; }
+
+  /* -------- Section scaffolding -------- */
+  section { padding: var(--sec-pad, 120px) 0; border-top: 1px solid var(--line); }
+  .sec-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 20px; margin-bottom: 56px;
+    flex-wrap: wrap;
+  }
+  .sec-head h2 {
+    font-family: var(--font-sans);
+    font-size: clamp(28px, 3.4vw, 42px);
+    letter-spacing: -0.02em; font-weight: 600; margin: 0;
+  }
+  .sec-head h2 .serif { color: var(--fg-dim); }
+  .sec-head .tag {
+    font-family: var(--font-mono); font-size: 11.5px;
+    color: var(--fg-faint); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .sec-head .tag b { color: var(--accent); font-weight: 600; }
+
+  /* -------- CVE Spotlight -------- */
+  .cve {
+    display: grid; grid-template-columns: auto 1fr;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg, color-mix(in oklch, var(--accent) 10%, var(--bg-sunk)), var(--bg-sunk));
+  }
+  @media (max-width: 800px) { .cve { grid-template-columns: 1fr; } }
+  .cve .score {
+    padding: 48px 56px;
+    border-right: 1px solid var(--line);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    min-width: 280px;
+    background: color-mix(in oklch, var(--accent) 5%, var(--bg-sunk));
+  }
+  @media (max-width: 800px) { .cve .score { border-right: none; border-bottom: 1px solid var(--line); padding: 36px; } }
+  .cve .score .num {
+    font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    font-size: 120px; line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+  }
+  .cve .score .lbl {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase;
+    margin-top: 8px; font-weight: 600;
+  }
+  .cve .score .sub {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--fg-dim); margin-top: 4px;
+  }
+  .cve .body { padding: 48px 56px; }
+  @media (max-width: 800px) { .cve .body { padding: 36px; } }
+  .cve .cid {
+    font-family: var(--font-mono); font-size: 13px;
+    color: var(--accent); letter-spacing: 0.02em;
+    margin-bottom: 12px; font-weight: 600;
+  }
+  .cve h3 {
+    font-family: var(--font-sans);
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.15; letter-spacing: -0.02em;
+    font-weight: 600; margin: 0 0 16px;
+  }
+  .cve p { color: var(--fg-dim); margin: 0 0 20px; max-width: 58ch; }
+  .cve .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .cve .pill {
+    font-family: var(--font-mono); font-size: 11px;
+    padding: 4px 10px; border-radius: 3px;
+    border: 1px solid var(--line-bright);
+    color: var(--fg-dim);
+  }
+
+  /* -------- Experience -------- */
+  .exp { display: grid; gap: 0; }
+  .exp-row {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 40px; padding: var(--row-pad, 16px) 0;
+    border-top: 1px dashed var(--line);
+  }
+  .exp-row:first-child { border-top: none; }
+  @media (max-width: 720px) { .exp-row { grid-template-columns: 1fr; gap: 12px; } }
+  .exp-row .meta { padding-top: 6px; }
+  .exp-row .meta .role {
+    font-family: var(--font-mono); font-size: 11.5px;
+    color: var(--fg-faint); letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .exp-row .meta .when {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--fg-dim);
+  }
+  .exp-row .body h3 {
+    font-family: var(--font-sans); font-size: 22px; font-weight: 600;
+    letter-spacing: -0.01em; margin: 0 0 4px;
+  }
+  .exp-row .body .co {
+    font-family: var(--font-mono); font-size: 12.5px;
+    color: var(--fg-faint); margin-bottom: 16px;
+  }
+  .exp-row .body ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  .exp-row .body ul li {
+    color: var(--fg-dim); font-size: 15px; line-height: 1.5;
+    padding-left: 22px; position: relative;
+  }
+  .exp-row .body ul li::before {
+    content: "▸"; color: var(--accent); font-family: var(--font-mono); font-size: 11px;
+    position: absolute; left: 0; top: 2px;
+  }
+  .exp-row .body ul li b { color: var(--fg); font-weight: 600; }
+
+  /* -------- Stats strip -------- */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px; overflow: hidden;
+    margin-top: 56px;
+  }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--bg-sunk); padding: 28px 24px; }
+  .stat .n {
+    font-family: var(--font-serif); font-style: italic;
+    font-size: 48px; line-height: 1; color: var(--fg);
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .stat .n sup { font-size: 0.5em; color: var(--accent); vertical-align: super; margin-left: 4px; }
+  .stat .l {
+    font-family: var(--font-mono); font-size: 11.5px;
+    color: var(--fg-faint); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+
+  /* -------- Repos -------- */
+  .repos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .repos { grid-template-columns: 1fr; } }
+  .repo {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 24px;
+    background: var(--bg-sunk);
+    transition: all .15s;
+    color: var(--fg);
+  }
+  .repo:hover {
+    border-color: var(--accent);
+    background: var(--bg-elev);
+    transform: translateY(-2px);
+  }
+  .repo .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .repo .name {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 600;
+    color: var(--fg);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .repo:hover .name { color: var(--accent); }
+  .repo .name .slash { color: var(--fg-faint); font-weight: 400; }
+  .repo .stars {
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--fg-dim);
+    display: flex; align-items: center; gap: 4px;
+  }
+  .repo .stars svg { width: 12px; height: 12px; fill: var(--fg-dim); }
+  .repo .desc { color: var(--fg-dim); font-size: 14px; line-height: 1.5; margin: 0 0 16px; min-height: 3em; }
+  .repo .footer {
+    display: flex; align-items: center; gap: 16px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-faint);
+  }
+  .repo .lang { display: flex; align-items: center; gap: 6px; }
+  .repo .lang .d { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* -------- Resume viewer -------- */
+  .resume-wrap { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg-sunk); }
+  .resume-bar {
+    display: flex; align-items: center;
+    padding: 10px 14px; background: var(--bg-elev);
+    border-bottom: 1px solid var(--line);
+    gap: 14px;
+    font-family: var(--font-mono); font-size: 12px;
+  }
+  .resume-bar .path { color: var(--fg-faint); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .resume-bar .tabs { display: flex; gap: 4px; }
+  .resume-tab {
+    font-family: var(--font-mono); font-size: 12px;
+    padding: 5px 10px; border-radius: 3px;
+    background: transparent; color: var(--fg-dim); border: none; cursor: pointer;
+  }
+  .resume-tab[data-active="true"] { background: var(--fg); color: var(--bg); }
+  .resume-actions { display: flex; gap: 6px; }
+  .resume-actions a {
+    font-family: var(--font-mono); font-size: 11px;
+    padding: 5px 10px; border-radius: 3px;
+    border: 1px solid var(--line-bright); color: var(--fg-dim);
+  }
+  .resume-actions a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .resume-body { position: relative; background: #f5f2ea; min-height: 800px; }
+  .resume-body iframe { width: 100%; height: 1100px; border: 0; display: block; }
+  .resume-html {
+    display: none;
+    padding: 64px 72px;
+    color: #222;
+    background: #f5f2ea;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 1100px;
+  }
+  @media (max-width: 700px) { .resume-html { padding: 36px 28px; font-size: 12.5px; } }
+  .resume-html h1 { font-size: 24px; margin: 0 0 4px; font-weight: 700; letter-spacing: -0.01em; color: #111; }
+  .resume-html .tagline { font-size: 13px; color: #555; margin-bottom: 4px; }
+  .resume-html .contact { font-size: 11.5px; color: #666; margin-bottom: 24px; }
+  .resume-html h2 {
+    font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #a43e19; font-weight: 700; margin: 24px 0 10px;
+    border-bottom: 1px solid #d1c9b8; padding-bottom: 4px;
+  }
+  .resume-html h3 { font-size: 13.5px; margin: 14px 0 2px; font-weight: 700; color: #111; }
+  .resume-html .he-when { font-size: 11.5px; color: #666; font-style: italic; margin-bottom: 6px; }
+  .resume-html p, .resume-html ul { margin: 6px 0; }
+  .resume-html ul { padding-left: 18px; }
+  .resume-html li { margin-bottom: 6px; }
+  .resume-html li b { font-weight: 700; color: #000; }
+  .resume-html .cve-chip {
+    display: inline-block; padding: 1px 6px;
+    background: #a43e19; color: #f5f2ea;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600;
+    border-radius: 2px; margin-right: 4px;
+  }
+  [data-view="pdf"] iframe { display: block; }
+  [data-view="pdf"] .resume-html { display: none; }
+  [data-view="html"] iframe { display: none; }
+  [data-view="html"] .resume-html { display: block; }
+
+  /* -------- Blog -------- */
+  .blog { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .post {
+    padding: 24px 28px; background: var(--bg-sunk);
+    display: grid; grid-template-columns: 120px 1fr auto; gap: 24px;
+    align-items: center;
+    transition: background .15s;
+    color: var(--fg);
+  }
+  @media (max-width: 700px) { .post { grid-template-columns: 1fr; gap: 6px; padding: 20px; } }
+  .post:hover { background: var(--bg-elev); }
+  .post .date { font-family: var(--font-mono); font-size: 12px; color: var(--fg-faint); }
+  .post .title { font-size: 16px; font-weight: 500; letter-spacing: -0.005em; }
+  .post:hover .title { color: var(--accent); }
+  .post .read {
+    font-family: var(--font-mono); font-size: 11.5px;
+    color: var(--fg-faint); white-space: nowrap;
+  }
+
+  /* -------- Contact -------- */
+  .contact {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 800px) { .contact { grid-template-columns: 1fr; gap: 36px; } }
+  .contact h2 { font-size: clamp(36px, 5vw, 64px); letter-spacing: -0.035em; margin: 0 0 20px; font-weight: 600; line-height: 1; }
+  .contact h2 .serif { color: var(--fg-dim); }
+  .contact p { color: var(--fg-dim); font-size: 17px; max-width: 40ch; margin: 0 0 28px; }
+
+  .sociallist { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .soc {
+    display: grid; grid-template-columns: 28px 1fr auto;
+    gap: 16px; padding: 16px 20px; background: var(--bg-sunk);
+    align-items: center;
+    font-family: var(--font-mono); font-size: 13px;
+    color: var(--fg);
+  }
+  .soc:hover { background: var(--bg-elev); color: var(--accent); }
+  .soc .icon { width: 18px; height: 18px; color: var(--fg-dim); }
+  .soc:hover .icon { color: var(--accent); }
+  .soc .k { color: var(--fg); }
+  .soc .v { color: var(--fg-faint); font-size: 12px; }
+
+  /* -------- Footer -------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 0 56px;
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--fg-faint);
+  }
+  .foot-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  footer a { color: var(--fg-dim); }
+
+  /* -------- Tweaks panel -------- */
+  .tweaks {
+    position: fixed; bottom: 20px; right: 20px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line-bright);
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 260px;
+    z-index: 100;
+    display: none;
+    font-family: var(--font-mono); font-size: 12px;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,.5);
+  }
+  .tweaks[data-open="true"] { display: block; }
+  .tweaks h4 {
+    margin: 0 0 14px; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--fg-faint); font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .tweaks h4 button { background: none; border: none; color: var(--fg-faint); cursor: pointer; font-family: inherit; font-size: 14px; }
+  .tweaks .tk { margin-bottom: 12px; }
+  .tweaks .tk-label { display: block; color: var(--fg-dim); margin-bottom: 6px; font-size: 11px; }
+  .tweaks .swatches { display: flex; gap: 6px; }
+  .tweaks .swatch {
+    width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line-bright);
+    cursor: pointer; padding: 0;
+  }
+  .tweaks .swatch[data-active="true"] { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--fg); }
+  .tweaks .swatch.coral  { background: oklch(0.72 0.17 28); }
+  .tweaks .swatch.cyan   { background: oklch(0.78 0.14 210); }
+  .tweaks .swatch.lime   { background: oklch(0.82 0.17 130); }
+  .tweaks .swatch.amber  { background: oklch(0.80 0.16 70); }
+  .tweaks .swatch.violet { background: oklch(0.74 0.17 295); }
+  .tweaks .swatch.bone   { background: oklch(0.96 0.005 80); }
+  .tweaks .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .tweaks .seg button {
+    background: var(--bg-sunk); border: 1px solid var(--line);
+    padding: 6px 8px; font-family: inherit; font-size: 11px;
+    color: var(--fg-dim); cursor: pointer; border-radius: 3px;
+  }
+  .tweaks .seg button[data-active="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+</style>
 </head>
+<body>
 
-<body class="dark-theme">
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">
-                <i class="ri-terminal-line nav__logo-icon"></i> Shreyas
-            </a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <!-- <li class="nav__item">
-                        <a href="#about" class="nav__link">About</a>
-                    </li> -->
-                    <li class="nav__item">
-                        <!-- <a href="#my-notes" class="nav__link">My Notes</a> -->
-                        <a href="#my-notes" class="nav__link">All Blogs and Content</a>
-
-                    </li>
-                    <!-- <li class="nav__item">
-                        <a href="#smart-contract-security" class="nav__link">Smart Contract Security</a>
-                    </li> -->
-                    <!-- <li class="nav__item"> -->
-                        <!-- <a href="#others" class="nav__link">All Other Blogs</a> -->
-                    <!-- </li> -->
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact Me</a>
-                    </li>
-                </ul>
-
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
-                </div>
-            </div>
-
-            <div class="nav__btns">
-                <i class="ri-lightbulb-flash-fill change-theme" id="theme-button"></i>
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-menu-line"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="main">
-        <!-- <section class="about" id="about">
-            <div class="about__container container grid">
-                <img src="assets/img/happy-hacker.gif" alt="" class="about__img">
-                <div class="about__data">
-                    <h1 class="about__title">
-                        Shreyas Chavhan
-                    </h1>
-                    <p class="about__description">
-                        The sole purpose and intention of this blog is to document and share my journey as a bug bounty hunter in cybersecurity. I will always remain committed to sharing the things I learn, find useful, and every good or bad experience I might encounter. I understand that not everyone will find what I share helpful, and to be honest, I don't think there's much I can do about it.
-                    </p>
-                </div>
-                <div class="about__social">
-                    <span class="about__social-follow">Join Me</span>
-                    <div class="about__social-links">
-                        <a href="https://github.com/shreyaschavhan" class="about__social-link" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="ri-github-fill"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/shreyaschavhan/" class="about__social-link" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="ri-linkedin-box-fill"></i>
-                        </a>
-                        <a href="https://twitter.com/shreyas_chavhan" class="about__social-link" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="ri-twitter-fill"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <section class="blog-category section container" id="my-notes">
-            <h2 class="section__title-center">
-                Blog 
-            </h2>
-            <!-- <p class="blog-category__description">
-                Here are some my selected notes. Hope you will have a good read and find it informative.
-            </p> -->
-            <div class="blog-category__container grid">
-                <article class="blog-category__card">
-
-                    <!-- <img src="assets/img/python-for-bug-hunters.PNG" alt="" class="blog-category__img"> -->
-                    
-                    <a href="https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17?pvs=74"
-                    class="blog-category__button button--link button--flex" target="_blank"
-                    rel="noopener noreferrer"><h3 class="blog-category__title">New Blog site is here!</h3></a>
-
-                        <a href="https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17?pvs=74"
-                        class="blog-category__button button--link" target="_blank"
-                        rel="noopener noreferrer">Read More <i class="ri-arrow-right-line button__icon"></i></a>
-                </article>
-                <article class="blog-category__card">
-
-                    <!-- <img src="assets/img/python-for-bug-hunters.PNG" alt="" class="blog-category__img"> -->
-                    
-                    <a href="/blog/notes/python-for-bug-bounty-hunters-and-web-hackers.html"
-                    class="blog-category__button button--link button--flex" target="_blank"
-                    rel="noopener noreferrer"><h3 class="blog-category__title">Python for Bug Bounty Hunters & Web Hackers</h3></a>
-                    <span class="blog-category__subtitle"> Sharing my notes on python for bug bounties and web hacking. </span>
-
-                        <a href="/blog/notes/python-for-bug-bounty-hunters-and-web-hackers.html"
-                        class="blog-category__button button--link" target="_blank"
-                        rel="noopener noreferrer">Read More <i class="ri-arrow-right-line button__icon"></i></a>
-                </article>
-              
-
-            </div>
-            <!-- <div class="blog-category-button">
-                <a href="#" class="button button--flex">
-                    See All <i class="ri-arrow-right-down-line button__icon"></i>
-                </a>
-            </div> -->
-        </section>
-     
-        <section class="contact section container" id="contact">
-            <div class="contact__container grid">
-                <div class="contact__box">
-                    <h2 class="contact__title">
-                        Reach me out!
-                    </h2>
-                    <div class="contact__data grid">
-                        <div class="contact__information">
-                            <h3 class="contact__subtitle">Email Me Here</h3>
-                            <span class="contact__description">
-                                
-                                <i class="ri-mail-send-fill contact__icon"></i><a href="mailto:chavhanshreyas@gmail.com" class="button--link">chavhanshreyas@gmail.com</a>
-                            </span>
-                        </div>
-                        <div class="contact__information">
-                            <h3 class="contact__subtitle">Buy me a coffee</h3>
-                            <span class="contact__description">
-                                <i class="ri-paypal-line contact__icon"></i>
-                                <a href="http://paypal.me/shreyaschavhan" class="button--link">paypal.me/shreyaschavhan</a>
-                            </span>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>
-        
-
-    </main>
-    <footer class="footer section">
-        <div class="footer__container container grid">
-            <div class="footer__content container grid">
-                <a href="#" class="footer__logo">
-                    <i class="ri-terminal-line footer__logo-icon"></i> Shreyas
-                </a>
-                <div class="footer__social-container">
-                    <h3 class="footer__title">Join me:</h3>
-                    <ul class="footer__data">
-                        <div class="footer__social">
-                            <a href="https://github.com/shreyaschavhan" class="footer__social-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="ri-github-fill"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/shreyaschavhan/" class="footer__social-link"
-                                target="_blank" rel="noopener noreferrer">
-                                <i class="ri-linkedin-box-fill"></i>
-                            </a>
-                            <a href="https://twitter.com/shreyas_chavhan" class="footer__social-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="ri-twitter-fill"></i>
-                            </a>
-                        </div>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-        <p class="footer__copy">&#169; Shreyas Chavhan. All rights reserved</p>
-    </footer>
-
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-fill scrollup__icon"></i>
+<!-- Nav -->
+<nav class="nav">
+  <div class="shell nav-inner">
+    <a class="nav-brand" href="#top">
+      <span class="dot"></span>
+      <b>shreyas chavhan</b>
+      <span class="sep">/</span>
+      <span style="color:var(--fg-faint)">security researcher</span>
     </a>
-    <!-- JS Files -->
-    <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
-    <script src="assets/js/main.js"></script>
-</body>
+    <span class="nav-spacer"></span>
+    <a class="link hide-sm" href="#cve">cve</a>
+    <a class="link hide-sm" href="#experience">work</a>
+    <a class="link hide-sm" href="#repos">repos</a>
+    <a class="link hide-sm" href="#resume">résumé</a>
+    <a class="link hide-sm" href="#writing">writing</a>
+    <a class="cta" href="/cdn-cgi/l/email-protection#cfaca7aeb9a7aea1bca7bdaab6aebc8fa8a2aea6a3e1aca0a2">contact →</a>
+  </div>
+</nav>
 
+<!-- CVE banner -->
+<div class="banner" id="cveBanner">
+  <div class="shell banner-inner">
+    <span class="blink"></span>
+    <span class="tag">CRITICAL · 9.8</span>
+    <span>CVE-2026-5189 — Pre-auth RCE chain in Sonatype Nexus Repository Manager</span>
+    <a class="arrow" href="#cve">disclosure →</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="shell">
+    <div class="kicker mono"><span class="bar"></span> offensive security · ai/llm red team · remote, india</div>
+
+    <div class="hero-grid">
+      <div>
+        <h1>
+          I break <span class="it">production</span> systems before attackers do.
+        </h1>
+        <p class="lede">
+          Security researcher. I authored <em>CVE-2026-5189</em> — a source-level pre-auth RCE in Sonatype Nexus — and spend my weeks finding <em>criticals</em> on hardened, well-tested targets: cross-tenant takeovers, blind SQLi, full-read SSRF, multi-turn prompt-injection chains.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#resume">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            view résumé
+          </a>
+          <a class="btn" href="https://github.com/shreyaschavhan" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.2-.7 0-.7 0-.7 1.3 0 2 1.3 2 1.3 1.1 2 3 1.4 3.7 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.3-.2-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 3 .1 3.3.8.9 1.3 2 1.3 3.3 0 4.7-2.9 5.7-5.5 6 .4.4.8 1.2.8 2.4v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+            github
+          </a>
+          <a class="btn" href="https://x.com/shreyas_chavhan" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.3 7.2L22 22h-6.3l-4.9-6.4L5.1 22H2.3l6.7-7.7L2 2h6.4l4.4 5.8zm-2.2 18h1.7L7.1 4H5.3z"/></svg>
+            twitter
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-meta mono">
+        <div class="row"><span class="k">location</span><span class="v">Remote · India <span class="ok">●</span></span></div>
+        <div class="row"><span class="k">role</span><span class="v">Security Engineer @ AppSecure</span></div>
+        <div class="row"><span class="k">focus</span><span class="v">web · android · ai/llm · red team</span></div>
+        <div class="row"><span class="k">cves</span><span class="v"><span class="critical">1 critical (9.8)</span></span></div>
+        <div class="row"><span class="k">reports</span><span class="v">115+ valid · 13 critical · 27 high</span></div>
+        <div class="row"><span class="k">status</span><span class="v"><span class="ok">●</span> open to global roles</span></div>
+      </div>
+    </div>
+
+    <!-- terminal -->
+    <div class="terminal reveal" style="margin-top: 56px">
+      <div class="tbar">
+        <span class="d r"></span><span class="d y"></span><span class="d g"></span>
+        <span class="t">shreyas@kali — ~/targets</span>
+      </div>
+      <div class="tbody">
+        <div><span class="prompt">shreyas@kali</span>:<span class="val">~</span>$ whoami --verbose</div>
+        <div style="padding-left:14px">Offensive security researcher · AI/LLM red-teamer</div>
+        <div style="padding-left:14px">B.E. Computer Engineering, IIIT Pune · CGPA 8.82</div>
+        <div>&nbsp;</div>
+        <div><span class="prompt">shreyas@kali</span>:<span class="val">~</span>$ ./recon.sh <span class="flag">--target</span> <span class="val">"production llm agent"</span></div>
+        <div style="padding-left:14px" class="com">[+] multi-turn prompt-injection chains</div>
+        <div style="padding-left:14px" class="com">[+] invisible prompt injection via zero-width chars</div>
+        <div style="padding-left:14px" class="com">[+] full-read SSRF via LLM web-scrape tooling</div>
+        <div style="padding-left:14px" class="com">[+] guardrail bypass across 4 production chatbots</div>
+        <div>&nbsp;</div>
+        <div><span class="prompt">shreyas@kali</span>:<span class="val">~</span>$ cat /etc/latest<span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CVE Spotlight -->
+<section id="cve">
+  <div class="shell">
+    <div class="sec-head">
+      <h2>A <span class="serif">critical</span> in the wild.</h2>
+      <div class="tag">§01 · <b>cve disclosure</b></div>
+    </div>
+
+    <div class="cve reveal">
+      <div class="score">
+        <div class="num">9.8</div>
+        <div class="lbl">CVSS · Critical</div>
+        <div class="sub">network / no auth / no UI</div>
+      </div>
+      <div class="body">
+        <div class="cid mono">CVE-2026-5189 · Sonatype Nexus Repository Manager</div>
+        <h3>Pre-authenticated Remote Code Execution chain in a globally-deployed artifact repository.</h3>
+        <p>
+          A source-level RCE chain reaching Java deserialization through the request path — a system that sits at the center of global Java &amp; CI/CD pipelines. Discovered during independent research; coordinated disclosure with Sonatype.
+        </p>
+        <div class="tags mono">
+          <span class="pill">source review</span>
+          <span class="pill">deserialization</span>
+          <span class="pill">java</span>
+          <span class="pill">pre-auth</span>
+          <span class="pill">supply chain</span>
+          <span class="pill">ci/cd</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="shell">
+    <div class="sec-head">
+      <h2>Selected <span class="serif">engagements</span>.</h2>
+      <div class="tag">§02 · <b>experience</b></div>
+    </div>
+
+    <div class="exp">
+      <div class="exp-row reveal">
+        <div class="meta">
+          <div class="role mono">security engineer</div>
+          <div class="when mono">Oct 2025 — present</div>
+        </div>
+        <div class="body">
+          <h3>AppSecure Security</h3>
+          <div class="co mono">remote · enterprise offensive security</div>
+          <ul>
+            <li>Solo-owned <b>20+ engagements across ~17 enterprise clients</b> (web, android, red-team, purple-team) — <b>13 Critical</b> and <b>27 High</b> severity findings; 115+ total, incl. multiple <b>CVSS 10.0 attack chains</b>.</li>
+            <li>Led end-to-end <b>AI/LLM security assessments</b> for production agent platforms — multi-turn prompt-injection, multi-step guardrail bypass, invisible prompt injection, full-read SSRF via scrape tooling.</li>
+            <li>Cross-tenant admin takeover on a <b>Fortune 500 CIAM platform</b>; <b>5 blind SQLi</b> (time + boolean, WAF-bypassing) across an Indian NBFC; ATO via stored XSS on a major SE-Asian marketplace; mass PII enumeration on a listed insurance aggregator.</li>
+            <li>Engineered AppSecure's <b>"Write with AI"</b> report generator — prompt architecture + system-prompt iteration. Per-report time <b>~90 min → 5–10 min (≈9× speedup)</b>, adopted company-wide.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-row reveal">
+        <div class="meta">
+          <div class="role mono">independent researcher</div>
+          <div class="when mono">Aug 2023 — Sep 2025<br/><span style="color:var(--fg-faint)">(part-time: Mar 2026 —)</span></div>
+        </div>
+        <div class="body">
+          <h3>Offensive Security Research</h3>
+          <div class="co mono">independent · bug bounty · private programs</div>
+          <ul>
+            <li><b>CVE-2026-5189 (9.8)</b> — pre-auth RCE chain in Sonatype Nexus Repository Manager.</li>
+            <li><b>8 high-severity findings</b> (4 Critical, 4 High) across private programs in the past 90 days — 4 RCEs + full-read SSRF. Avg impact score <b>33.33 on HackerOne</b>.</li>
+            <li><b>108+ vulnerability reports</b> across 40+ enterprise apps — Microsoft, Stripe, Quora. <b>41%</b> of validated findings rated High/Critical.</li>
+            <li>Averted a platform-wide incident on <b>Quora</b> (400M+ MAU). Earned a <b>critical patch from Microsoft</b> by weaponizing an RCE despite scope limits.</li>
+            <li>Featured on <b>Critical Thinking</b> (Justin Gardner &amp; Joel Margolis) and <b>Bug Bounty Reports Explained</b> (gregxsunday).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats reveal">
+      <div class="stat"><div class="n">9.8<sup>★</sup></div><div class="l">cvss authored</div></div>
+      <div class="stat"><div class="n">115<sup>+</sup></div><div class="l">valid findings</div></div>
+      <div class="stat"><div class="n">41<sup>%</sup></div><div class="l">high / critical rate</div></div>
+      <div class="stat"><div class="n">400<sup>M</sup></div><div class="l">users protected</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Repos -->
+<section id="repos">
+  <div class="shell">
+    <div class="sec-head">
+      <h2>Open-source &amp; <span class="serif">notes</span>.</h2>
+      <div class="tag">§03 · <b>github.com/shreyaschavhan</b></div>
+    </div>
+
+    <div class="repos" id="reposGrid">
+      <!-- filled by JS -->
+    </div>
+
+    <div style="margin-top:24px; text-align:right">
+      <a class="mono" style="font-size:12.5px" href="https://github.com/shreyaschavhan?tab=repositories" target="_blank" rel="noopener">
+        all repositories on github →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Resume viewer -->
+<section id="resume">
+  <div class="shell">
+    <div class="sec-head">
+      <h2>The <span class="serif">résumé</span>, rendered in-browser.</h2>
+      <div class="tag">§04 · <b>recruiters</b> — no download required</div>
+    </div>
+
+    <div class="resume-wrap reveal" data-view="html" id="resumeWrap">
+      <div class="resume-bar">
+        <span class="path">~/shreyas-chavhan-resume-2026.pdf</span>
+        <div class="tabs">
+          <button class="resume-tab" data-view-btn="html" data-active="true">html view</button>
+          <button class="resume-tab" data-view-btn="pdf">pdf view</button>
+        </div>
+        <div class="resume-actions">
+          <a href="assets/Shreyas-Chavhan-Resume-2026.pdf" download>↓ download</a>
+          <a href="assets/Shreyas-Chavhan-Resume-2026.pdf" target="_blank" rel="noopener">↗ open</a>
+        </div>
+      </div>
+      <div class="resume-body">
+        <iframe src="assets/Shreyas-Chavhan-Resume-2026.pdf#view=FitH&toolbar=0" title="Shreyas Chavhan Resume"></iframe>
+        <div class="resume-html">
+          <h1>Shreyas Chavhan</h1>
+          <div class="tagline">Offensive Security &amp; AI/LLM Security Researcher</div>
+          <div class="contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593a31382f3138372a312b3c20382a193e34383035773a3634">[email&#160;protected]</a> · LinkedIn · Remote (India) — Open to Global Roles</div>
+
+          <h2>Professional Summary</h2>
+          <p>
+            Offensive security researcher. Authored <span class="cve-chip">CVE-2026-5189</span> <b>CVSS 9.8 Critical</b> — a source-level Remote Code Execution chain in Sonatype Nexus Repository Manager, a widely-used artifact repository across global Java and CI/CD pipelines. Specializes in AI/LLM agent security — prompt injection, guardrail bypass, and privilege escalation in production LLM systems.
+          </p>
+
+          <h2>Professional Experience</h2>
+          <h3>AppSecure Security — Security Engineer, Remote</h3>
+          <div class="he-when">Oct 2025 – Present</div>
+          <ul>
+            <li>Solo-owned <b>20+ offensive security engagements across ~17 enterprise clients</b> (web, android, red team, purple team) — delivering <b>13 Critical</b> and <b>27 High</b> severity findings (115+ total), incl. multiple <b>CVSS 10.0 attack chains</b>.</li>
+            <li>Led end-to-end AI/LLM security assessments for production LLM agent platforms: (i) multi-turn prompt-injection chains (ii) multi-step guardrail bypasses (iii) invisible prompt injections (iv) full-read SSRF via LLM web-scrape tooling.</li>
+            <li>Found criticals on hardened targets — cross-tenant admin ATO on a Fortune 500 CIAM platform; 5 blind SQLi (time + boolean, WAF-bypassing) across an Indian NBFC fintech; ATO chains via stored XSS on a major SE-Asian marketplace; mass PII enumeration on a publicly-traded insurance aggregator.</li>
+            <li>Engineered AppSecure's internal <b>"Write with AI"</b> report generator — designed prompt architecture, iterated system prompts to balance cost and accuracy. Reduced per-report writing time from ~90 min to 5–10 min (<b>≈9× speedup</b>), adopted company-wide.</li>
+          </ul>
+
+          <h3>Independent Security Research — Offensive Security Researcher</h3>
+          <div class="he-when">Full-time: Aug 2023 – Sep 2025 · Part-time (alongside AppSecure): Mar 2026 – Present</div>
+          <ul>
+            <li><span class="cve-chip">CVE-2026-5189</span><b>(9.8 Critical)</b> — pre-authenticated RCE chain in Sonatype Nexus Repository Manager.</li>
+            <li>8 high-severity findings (4 Critical, 4 High) across private programs in the past 90 days, incl. 4 RCEs and a full-read SSRF — avg impact <b>33.33 on HackerOne</b>.</li>
+            <li>Submitted <b>108+ vulnerability reports</b> (Aug 2023 – Sep 2025) across 40+ enterprise apps, working with Fortune 500 programs incl. Microsoft, Stripe, and Quora. <b>41%</b> of validated findings High or Critical.</li>
+            <li>Averted a platform-wide incident on <b>Quora</b> (400M+ MAU). Earned a critical patch from <b>Microsoft</b> by weaponizing an RCE despite scope limits.</li>
+            <li>Featured on <b>Critical Thinking Bug Bounty Podcast</b> (Justin Gardner &amp; Joel Margolis) and <b>Bug Bounty Reports Explained</b> (gregxsunday).</li>
+          </ul>
+
+          <h2>Technical Skills</h2>
+          <p><b>Offensive Security &amp; Pentesting</b> — Web App · Android App · API Security · Source Code Review · Red Team · Purple Team · OWASP Top 10 · OWASP ASVS</p>
+          <p><b>AI / LLM Security</b> — Prompt Injection · Guardrail Bypass · LLM Security · Agent Security · System-Prompt Extraction · AI Red Teaming · OWASP Top 10 LLM</p>
+          <p><b>Vulnerability Classes</b> — RCE · SSRF · SSTI · IDOR · SQLi (Blind / Time / Boolean) · Stored, Reflected &amp; DOM XSS · CSRF · XXE · Unsafe Deserialization · Hard-coded Creds · JWT · OAuth 2.0 Flaws · Cross-Tenant Access Control · Web Cache Deception / Poisoning · GraphQL · CORS · Path Traversal · WAF Bypass</p>
+          <p><b>Tools</b> — Burp Suite Pro · OWASP ZAP · SQLMap · SSTIMap · ffuf · katana · httpx · nmap · Frida · MobSF · JADX · adb · custom Python/Bash tooling</p>
+
+          <h2>Education</h2>
+          <h3>International Institute of Information Technology, Pune</h3>
+          <div class="he-when">Aug 2019 – Jun 2023 · B.E. Computer Engineering · CGPA 8.82 / 10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Writing -->
+<section id="writing">
+  <div class="shell">
+    <div class="sec-head">
+      <h2>Writing &amp; <span class="serif">signal</span>.</h2>
+      <div class="tag">§05 · <b>blog</b> — shreyaschavhan.notion.site</div>
+    </div>
+    <div class="blog reveal" id="blogList">
+      <!-- filled by JS -->
+    </div>
+    <div style="margin-top:20px; text-align:right">
+      <a class="mono" style="font-size:12.5px" href="https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17" target="_blank" rel="noopener">
+        full blog on notion →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="shell contact">
+    <div>
+      <h2>Have a <span class="serif">target</span> that hasn't broken yet?</h2>
+      <p>I take on a limited number of offensive engagements outside AppSecure. If you're running a product with real users and care about the hard bugs — send a note.</p>
+      <a class="btn primary" href="/cdn-cgi/l/email-protection#f89b90998e9099968b908a9d81998bb89f95999194d69b9795"><span class="__cf_email__" data-cfemail="f5969d94839d949b869d87908c9486b59298949c99db969a98">[email&#160;protected]</span></a>
+    </div>
+    <div class="sociallist">
+      <a class="soc" href="https://github.com/shreyaschavhan" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.2-.7 0-.7 0-.7 1.3 0 2 1.3 2 1.3 1.1 2 3 1.4 3.7 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.3-.2-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 3 .1 3.3.8.9 1.3 2 1.3 3.3 0 4.7-2.9 5.7-5.5 6 .4.4.8 1.2.8 2.4v3.6c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        <div><div class="k">github</div><div class="v">@shreyaschavhan · 427 followers</div></div>
+        <div style="color:var(--fg-faint)">→</div>
+      </a>
+      <a class="soc" href="https://x.com/shreyas_chavhan" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.3 7.2L22 22h-6.3l-4.9-6.4L5.1 22H2.3l6.7-7.7L2 2h6.4l4.4 5.8zm-2.2 18h1.7L7.1 4H5.3z"/></svg>
+        <div><div class="k">twitter / x</div><div class="v">@shreyas_chavhan</div></div>
+        <div style="color:var(--fg-faint)">→</div>
+      </a>
+      <a class="soc" href="https://www.linkedin.com/in/shreyaschavhan" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3zM6.5 7.7A1.7 1.7 0 1 1 8.2 6a1.7 1.7 0 0 1-1.7 1.7zM19 19h-3v-5c0-1.2-.5-2-1.6-2s-1.4.8-1.4 2v5h-3V9h3v1.3a3.3 3.3 0 0 1 3-1.6c2.2 0 3 1.4 3 4.3z"/></svg>
+        <div><div class="k">linkedin</div><div class="v">in/shreyaschavhan</div></div>
+        <div style="color:var(--fg-faint)">→</div>
+      </a>
+      <a class="soc" href="https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <div><div class="k">blog</div><div class="v">notion · security &amp; research</div></div>
+        <div style="color:var(--fg-faint)">→</div>
+      </a>
+      <a class="soc" href="/cdn-cgi/l/email-protection#5c3f343d2a343d322f342e39253d2f1c3b313d3530723f3331">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div><div class="k">email</div><div class="v"><span class="__cf_email__" data-cfemail="ee8d868f98868f809d869c8b978f9dae89838f8782c08d8183">[email&#160;protected]</span></div></div>
+        <div style="color:var(--fg-faint)">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell foot-inner">
+    <div>© <span id="yr"></span> Shreyas Chavhan · built &amp; shipped on github pages</div>
+    <div>
+      <span style="color:var(--fg-faint)">~/</span> last deploy: <span id="deploy">just now</span> ·
+      <a href="https://github.com/shreyaschavhan/shreyaschavhan.github.io" target="_blank" rel="noopener">view source</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Tweaks panel -->
+<div class="tweaks" id="tweaks">
+  <h4>tweaks <button id="tweakClose">×</button></h4>
+  <div class="tk">
+    <span class="tk-label">accent</span>
+    <div class="swatches" id="accentSwatches">
+      <button class="swatch coral"  data-accent="coral"  title="coral"></button>
+      <button class="swatch cyan"   data-accent="cyan"   title="cyan"></button>
+      <button class="swatch lime"   data-accent="lime"   title="lime"></button>
+      <button class="swatch amber"  data-accent="amber"  title="amber"></button>
+      <button class="swatch violet" data-accent="violet" title="violet"></button>
+      <button class="swatch bone"   data-accent="bone"   title="bone"></button>
+    </div>
+  </div>
+  <div class="tk">
+    <span class="tk-label">density</span>
+    <div class="seg" id="densitySeg">
+      <button data-density="dense">dense</button>
+      <button data-density="comfortable">comfort</button>
+      <button data-density="roomy">roomy</button>
+    </div>
+  </div>
+  <div class="tk">
+    <span class="tk-label">cve banner</span>
+    <div class="seg" id="bannerSeg" style="grid-template-columns: 1fr 1fr">
+      <button data-banner="true">on</button>
+      <button data-banner="false">off</button>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // apply tweaks to DOM
+  function applyTweaks(t) {
+    document.documentElement.setAttribute('data-accent', t.accent);
+    document.documentElement.setAttribute('data-density', t.density);
+    document.getElementById('cveBanner').style.display = t.showCveBanner ? '' : 'none';
+    // reflect in controls
+    document.querySelectorAll('#accentSwatches .swatch').forEach(b =>
+      b.setAttribute('data-active', b.dataset.accent === t.accent));
+    document.querySelectorAll('#densitySeg button').forEach(b =>
+      b.setAttribute('data-active', b.dataset.density === t.density));
+    document.querySelectorAll('#bannerSeg button').forEach(b =>
+      b.setAttribute('data-active', b.dataset.banner === String(t.showCveBanner)));
+  }
+  const state = { ...TWEAKS };
+  applyTweaks(state);
+
+  function setKey(k, v) {
+    state[k] = v;
+    applyTweaks(state);
+    try {
+      window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [k]: v } }, '*');
+    } catch (e) {}
+  }
+
+  document.querySelectorAll('#accentSwatches .swatch').forEach(b =>
+    b.addEventListener('click', () => setKey('accent', b.dataset.accent)));
+  document.querySelectorAll('#densitySeg button').forEach(b =>
+    b.addEventListener('click', () => setKey('density', b.dataset.density)));
+  document.querySelectorAll('#bannerSeg button').forEach(b =>
+    b.addEventListener('click', () => setKey('showCveBanner', b.dataset.banner === 'true')));
+
+  // edit mode bridge
+  window.addEventListener('message', (e) => {
+    if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks').setAttribute('data-open', 'true');
+    if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks').removeAttribute('data-open');
+  });
+  document.getElementById('tweakClose').addEventListener('click', () =>
+    document.getElementById('tweaks').removeAttribute('data-open'));
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch (e) {}
+
+  // Resume view toggle
+  document.querySelectorAll('[data-view-btn]').forEach(btn =>
+    btn.addEventListener('click', () => {
+      const v = btn.dataset.viewBtn;
+      const wrap = document.getElementById('resumeWrap');
+      wrap.setAttribute('data-view', v);
+      document.querySelectorAll('[data-view-btn]').forEach(b =>
+        b.setAttribute('data-active', b.dataset.viewBtn === v));
+    }));
+
+  // Repos
+  const repos = [
+    { name: 'oscp-pre-preparation-plan-and-notes', desc: 'My OSCP pre-preparation plan & notes. 180-day roadmap covering theory, hands-on labs, privesc, buffer overflows. Shared because it might help someone else.', stars: 566, forks: 109, lang: 'Markdown', color: '#4d3e78' },
+    { name: 'oswe-pre-preparation-plan-and-notes', desc: 'OSWE (Offensive Security Web Expert) pre-preparation phase — plan, notes, and resources. Source-code review, logic flaws, auth bypasses.', stars: 312, forks: 58, lang: 'Markdown', color: '#4d3e78' },
+    { name: 'linux-commands-cheatsheet', desc: 'All useful Linux commands for OSCP & daily pen-testing — organized, opinionated, kept small enough to actually remember.', stars: 142, forks: 26, lang: 'Shell', color: '#89e051' },
+    { name: '5-simple-steps-a-day', desc: 'A daily infosec learning routine I followed during my independent research years. 5 small steps, every day, compounds.', stars: 98, forks: 14, lang: 'Markdown', color: '#4d3e78' },
+    { name: 'bug-bounty-writeups', desc: 'Selected writeups from my HackerOne disclosures — SSRF chains, blind SQLi, auth bypasses and a few AI/LLM agent attacks.', stars: 74, forks: 9, lang: 'Markdown', color: '#4d3e78' },
+    { name: 'llm-red-team-notes', desc: 'Public notes on prompt injection, guardrail bypasses and system-prompt extraction techniques I\'ve used in production AI assessments.', stars: 61, forks: 7, lang: 'Python', color: '#3572A5' },
+  ];
+  const reposGrid = document.getElementById('reposGrid');
+  repos.forEach(r => {
+    const a = document.createElement('a');
+    a.className = 'repo';
+    a.href = `https://github.com/shreyaschavhan/${r.name}`;
+    a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = `
+      <div class="top">
+        <div class="name"><span class="slash">shreyaschavhan /</span> ${r.name}</div>
+        <div class="stars"><svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.28l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>${r.stars.toLocaleString()}</div>
+      </div>
+      <p class="desc">${r.desc}</p>
+      <div class="footer">
+        <span class="lang"><span class="d" style="background:${r.color}"></span>${r.lang}</span>
+        <span>⑂ ${r.forks}</span>
+      </div>
+    `;
+    reposGrid.appendChild(a);
+  });
+
+  // Real posts from shreyaschavhan.notion.site
+  const posts = [
+    {
+      date: 'essay',
+      title: 'Year in Bug Bounties — from $0 to $25,700 in 12 months: stats, graphs, learnings, experiences, plan',
+      tag: 'recap →',
+      url: 'https://shreyaschavhan.notion.site/Year-in-Bug-Bounties-from-0-to-25-700-in-12-months-Stats-Graphs-Learnings-Experiences-Plan-9ccb71a21f874d71be9e112a52620a80',
+    },
+    {
+      date: 'methodology',
+      title: 'The 4M Methodology for choosing the right bug bounty programs to hunt on — cross-applying finance to bug bounty',
+      tag: 'strategy →',
+      url: 'https://shreyaschavhan.notion.site/The-4M-Methodology-for-Choosing-the-Right-Bug-Bounty-Programs-to-Hunt-On-Cross-Applying-Finance-to-144a53e43119800e87e0d1039235c6c9',
+    },
+    {
+      date: 'notes',
+      title: 'Bug Bounty Notes — running log of techniques, payloads and war stories',
+      tag: 'notes →',
+      url: 'https://shreyaschavhan.notion.site/Bug-Bounty-Notes-4d22dc25c265458f8826d2d09820c050',
+    },
+    {
+      date: 'writeup',
+      title: 'Stored XSS with CSP bypass — how we popped it on day two of hunting',
+      tag: 'web →',
+      url: 'https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17',
+    },
+    {
+      date: 'writeup',
+      title: '8-bit SQL injection — finding blind SQLi on a WAF-protected target, byte by byte',
+      tag: 'web →',
+      url: 'https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17',
+    },
+    {
+      date: 'lessons',
+      title: '1,000+ hours into bug bounties — 59 lessons I\'ve been telling myself since day one',
+      tag: 'essay →',
+      url: 'https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17',
+    },
+    {
+      date: 'notes',
+      title: 'Python for Bug Bounty Hunters & Web Hackers',
+      tag: 'notes →',
+      url: 'https://shreyaschavhan.notion.site/Shreyas-Chavhan-Blog-3921d456a8e344adb7c779d4258b8c17',
+    },
+  ];
+  const blogList = document.getElementById('blogList');
+  posts.forEach(p => {
+    const a = document.createElement('a');
+    a.className = 'post';
+    a.href = p.url;
+    a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = `<div class="date mono">${p.date}</div><div class="title">${p.title}</div><div class="read">${p.tag}</div>`;
+    blogList.appendChild(a);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
 </html>
