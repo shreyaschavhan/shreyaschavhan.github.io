@@ -6,6 +6,15 @@
 <title>Shreyas Chavhan — Offensive Security & AI/LLM Security Researcher</title>
 <meta name="description" content="Offensive security researcher. Authored CVE-2026-5189. Specializes in AI/LLM agent security." />
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4NJMY5MRXY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-4NJMY5MRXY');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -538,6 +547,111 @@
   .reveal.in { opacity: 1; transform: none; }
 
   ::selection { background: var(--accent); color: var(--bg); }
+
+  /* =============== MOBILE =============== */
+  @media (max-width: 760px) {
+    :root { --sec-pad: 72px; }
+    body { font-size: 15px; }
+
+    /* Nav: keep brand + CTA only, ensure no overflow */
+    .nav-inner { height: 52px; gap: 10px; font-size: 12px; }
+    .nav-brand b { font-size: 13px; }
+    .nav-brand .sep, .nav-brand span:last-child { display: none; }
+    .nav .cta { padding: 5px 10px; font-size: 12px; }
+
+    /* Banner: wrap long line */
+    .banner { font-size: 11px; }
+    .banner-inner { height: auto; padding: 10px 0; flex-wrap: wrap; gap: 8px; line-height: 1.4; }
+    .banner-inner span:nth-child(3) { flex: 1 1 100%; order: 3; }
+    .banner .arrow { margin-left: 0; order: 4; }
+
+    /* Hero */
+    .hero { padding: 48px 0 24px; }
+    .hero .kicker { font-size: 10.5px; margin-bottom: 20px; flex-wrap: wrap; }
+    .hero h1 { font-size: clamp(36px, 11vw, 52px); letter-spacing: -0.03em; max-width: none; margin-bottom: 20px; }
+    .hero .lede { font-size: 16px; margin-bottom: 24px; }
+    .cta-row { gap: 8px; margin-top: 20px; }
+    .btn { font-size: 12px; padding: 9px 13px; }
+
+    .hero-meta { padding-left: 16px; font-size: 12px; }
+    .hero-meta .row { grid-template-columns: 86px 1fr; gap: 8px; }
+
+    .terminal { margin-top: 36px !important; font-size: 11.5px; }
+    .terminal .tbody { padding: 14px 14px; line-height: 1.7; word-break: break-word; }
+    .terminal .tbar { padding: 8px 12px; font-size: 10.5px; }
+
+    /* Section head */
+    .sec-head { margin-bottom: 32px; gap: 10px; }
+    .sec-head h2 { font-size: clamp(24px, 6.4vw, 30px); }
+    .sec-head .tag { font-size: 10.5px; }
+
+    /* CVE spotlight */
+    .cve .score { padding: 28px 24px; min-width: 0; }
+    .cve .score .num { font-size: 88px; }
+    .cve .body { padding: 28px 24px; }
+    .cve h3 { font-size: 20px; }
+    .cve p { font-size: 14.5px; }
+
+    /* Experience */
+    .exp-row { padding: 18px 0; }
+    .exp-row .body h3 { font-size: 19px; }
+    .exp-row .body ul li { font-size: 14px; padding-left: 18px; }
+
+    /* Stats */
+    .stats { margin-top: 36px; }
+    .stat { padding: 20px 16px; }
+    .stat .n { font-size: 36px; margin-bottom: 6px; }
+    .stat .l { font-size: 10.5px; }
+
+    /* Repos */
+    .repo { padding: 18px; }
+    .repo .name { font-size: 12.5px; gap: 4px; flex-wrap: wrap; }
+    .repo .top { gap: 10px; }
+    .repo .stars { font-size: 11px; }
+    .repo .desc { font-size: 13.5px; min-height: 0; }
+
+    /* Resume viewer */
+    .resume-bar { flex-wrap: wrap; gap: 8px; padding: 8px 10px; }
+    .resume-bar .path { flex: 1 1 100%; order: 1; font-size: 11px; }
+    .resume-bar .tabs { order: 2; }
+    .resume-bar .tabs .resume-tab { padding: 4px 8px; font-size: 11px; }
+    .resume-bar .resume-actions { order: 3; margin-left: auto; }
+    .resume-actions a { padding: 4px 8px; font-size: 10.5px; }
+    .resume-body { min-height: 0; }
+    .resume-body iframe { height: 70vh; min-height: 520px; }
+
+    /* Blog */
+    .post { padding: 16px 18px; }
+    .post .title { font-size: 14.5px; }
+    .post .date, .post .read { font-size: 11px; }
+
+    /* Contact */
+    .contact h2 { font-size: clamp(30px, 8vw, 44px); }
+    .contact p { font-size: 15px; }
+    .soc { padding: 14px 16px; grid-template-columns: 22px 1fr auto; gap: 12px; font-size: 12px; }
+    .soc .v { font-size: 11px; }
+
+    /* Footer */
+    footer { padding: 28px 0 40px; font-size: 11px; }
+    .foot-inner { gap: 10px; }
+
+    /* Tweaks panel — full-width sheet at bottom */
+    .tweaks {
+      left: 12px; right: 12px; bottom: 12px;
+      min-width: 0; max-width: none;
+    }
+  }
+
+  /* Extra-small phones */
+  @media (max-width: 420px) {
+    :root { --gutter: 16px; }
+    .hero h1 { font-size: 34px; }
+    .cve .score .num { font-size: 72px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat .n { font-size: 32px; }
+    .nav-brand span:first-of-type + b { font-size: 12px; }
+    .nav .cta { padding: 5px 9px; }
+  }
 </style>
 </head>
 <body>
@@ -557,7 +671,7 @@
     <a class="link hide-sm" href="#repos">repos</a>
     <a class="link hide-sm" href="#resume">résumé</a>
     <a class="link hide-sm" href="#writing">writing</a>
-    <a class="cta" href="/cdn-cgi/l/email-protection#016269607769606f7269736478607241666c60686d2f626e6c">contact →</a>
+    <a class="cta" href="/cdn-cgi/l/email-protection#45262d24332d242b362d37203c2436052228242c296b262a28">contact →</a>
   </div>
 </nav>
 
@@ -766,7 +880,7 @@
         <div class="resume-html">
           <h1>Shreyas Chavhan</h1>
           <div class="tagline">Offensive Security &amp; AI/LLM Security Researcher</div>
-          <div class="contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7a19121b0c121b140912081f031b093a1d171b131654191517">[email&#160;protected]</a> · LinkedIn · Remote (India) — Open to Global Roles</div>
+          <div class="contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="412229203729202f3229332438203201262c20282d6f222e2c">[email&#160;protected]</a> · LinkedIn · Remote (India) — Open to Global Roles</div>
 
           <h2>Professional Summary</h2>
           <p>
@@ -832,7 +946,7 @@
     <div>
       <h2>Have a <span class="serif">target</span> that hasn't broken yet?</h2>
       <p>I take on a limited number of offensive engagements outside AppSecure. If you're running a product with real users and care about the hard bugs — send a note.</p>
-      <a class="btn primary" href="/cdn-cgi/l/email-protection#680b00091e0009061b001a0d11091b280f05090104460b0705"><span class="__cf_email__" data-cfemail="25464d44534d444b564d57405c4456654248444c490b464a48">[email&#160;protected]</span></a>
+      <a class="btn primary" href="/cdn-cgi/l/email-protection#0b68636a7d636a657863796e726a784b6c666a626725686466"><span class="__cf_email__" data-cfemail="52313a33243a333c213a20372b332112353f333b3e7c313d3f">[email&#160;protected]</span></a>
     </div>
     <div class="sociallist">
       <a class="soc" href="https://github.com/shreyaschavhan" target="_blank" rel="noopener">
@@ -855,9 +969,9 @@
         <div><div class="k">blog</div><div class="v">notion · security &amp; research</div></div>
         <div style="color:var(--fg-faint)">→</div>
       </a>
-      <a class="soc" href="/cdn-cgi/l/email-protection#1a79727b6c727b746972687f637b695a7d777b737634797577">
+      <a class="soc" href="/cdn-cgi/l/email-protection#adcec5ccdbc5ccc3dec5dfc8d4ccdeedcac0ccc4c183cec2c0">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <div><div class="k">email</div><div class="v"><span class="__cf_email__" data-cfemail="3d5e555c4b555c534e554f58445c4e7d5a505c5451135e5250">[email&#160;protected]</span></div></div>
+        <div><div class="k">email</div><div class="v"><span class="__cf_email__" data-cfemail="c0a3a8a1b6a8a1aeb3a8b2a5b9a1b380a7ada1a9aceea3afad">[email&#160;protected]</span></div></div>
         <div style="color:var(--fg-faint)">→</div>
       </a>
     </div>
