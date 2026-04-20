@@ -553,6 +553,51 @@
 
   ::selection { background: var(--accent); color: var(--bg); }
 
+  /* -------- Contact form -------- */
+  .cform {
+    display: grid; gap: 10px;
+    margin: 28px 0 0;
+    max-width: 44ch;
+  }
+  .cf-row {
+    display: grid; grid-template-columns: 72px 1fr;
+    gap: 12px; align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--bg-sunk);
+    padding: 4px 14px;
+    transition: border-color .15s;
+  }
+  .cf-row:focus-within { border-color: var(--accent); }
+  .cf-area { align-items: start; padding: 10px 14px; }
+  .cf-area .cf-lbl { padding-top: 6px; }
+  .cf-lbl {
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--fg-faint);
+  }
+  .cform input, .cform textarea, .cform select {
+    background: transparent; border: 0;
+    color: var(--fg); font-family: var(--font-sans); font-size: 14px;
+    padding: 10px 0; width: 100%; outline: none; resize: vertical;
+  }
+  .cform select { font-family: var(--font-mono); font-size: 13px; padding: 9px 0; cursor: pointer; }
+  .cform input::placeholder, .cform textarea::placeholder { color: var(--fg-faint); }
+  .cform textarea { padding: 0; line-height: 1.55; }
+  .cf-foot {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .cf-or { color: var(--fg-faint); font-size: 11.5px; }
+  .cf-mail { color: var(--fg-dim); font-size: 12.5px; border-bottom: 1px dashed var(--line-bright); }
+  .cf-mail:hover { color: var(--accent); border-color: var(--accent); }
+  .cf-status {
+    font-size: 12px; min-height: 1em; margin-top: 2px;
+    color: var(--fg-faint);
+  }
+  .cf-status[data-kind="ok"]  { color: var(--ok); }
+  .cf-status[data-kind="err"] { color: var(--crit); }
+  #cf-send[disabled] { opacity: .55; cursor: default; }
+
   /* =============== MOBILE =============== */
   @media (max-width: 760px) {
     :root { --sec-pad: 72px; }
@@ -636,6 +681,14 @@
     .soc { padding: 14px 16px; grid-template-columns: 22px 1fr auto; gap: 12px; font-size: 12px; }
     .soc .v { font-size: 11px; }
 
+    /* Contact form — mobile */
+    .cform { max-width: none; }
+    .cf-row { grid-template-columns: 60px 1fr; padding: 2px 12px; gap: 10px; }
+    .cf-lbl { font-size: 10px; }
+    .cform input, .cform textarea, .cform select { font-size: 13.5px; padding: 9px 0; }
+    .cf-foot { gap: 10px; }
+    .cf-or { display: none; }
+
     /* Footer */
     footer { padding: 28px 0 40px; font-size: 11px; }
     .foot-inner { gap: 10px; }
@@ -676,7 +729,7 @@
     <a class="link hide-sm" href="#repos">repos</a>
     <a class="link hide-sm" href="#resume">résumé</a>
     <a class="link hide-sm" href="#writing">writing</a>
-    <a class="cta" href="/cdn-cgi/l/email-protection#b5d6ddd4c3ddd4dbc6ddc7d0ccd4c6f5d2d8d4dcd99bd6dad8">contact →</a>
+    <a class="cta" id="navMail" href="#">contact →</a>
   </div>
 </nav>
 
@@ -885,7 +938,7 @@
         <div class="resume-html">
           <h1>Shreyas Chavhan</h1>
           <div class="tagline">Offensive Security &amp; AI/LLM Security Researcher</div>
-          <div class="contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="402328213628212e3328322539213300272d21292c6e232f2d">[email&#160;protected]</a> · LinkedIn · Remote (India) — Open to Global Roles</div>
+          <div class="contact"><span id="resumeMail">—</span> · LinkedIn · Remote (India) — Open to Global Roles</div>
 
           <h2>Professional Summary</h2>
           <p>
@@ -951,7 +1004,46 @@
     <div>
       <h2>Have a <span class="serif">target</span> that hasn't broken yet?</h2>
       <p>I take on a limited number of offensive engagements outside AppSecure. If you're running a product with real users and care about the hard bugs — send a note.</p>
-      <a class="btn primary" href="/cdn-cgi/l/email-protection#3f5c575e49575e514c574d5a465e4c7f58525e5653115c5052"><span class="__cf_email__" data-cfemail="482b20293e2029263b203a2d31293b082f25292124662b2725">[email&#160;protected]</span></a>
+
+      <form class="cform" id="cform" autocomplete="off" novalidate>
+        <input type="hidden" name="access_key" value="be2dd574-01dc-4261-b6ca-0f8d1e3acb3b" />
+        <input type="hidden" name="subject" value="New inquiry from shreyaschavhan.github.io" />
+        <input type="hidden" name="from_name" value="shreyaschavhan.github.io" />
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+
+        <label class="cf-row">
+          <span class="cf-lbl mono">name</span>
+          <input type="text" name="name" required placeholder="your name" />
+        </label>
+        <label class="cf-row">
+          <span class="cf-lbl mono">email</span>
+          <input type="email" name="email" required placeholder="you@company.com" />
+        </label>
+        <label class="cf-row">
+          <span class="cf-lbl mono">scope</span>
+          <select name="scope">
+            <option>engagement inquiry</option>
+            <option>cve / disclosure</option>
+            <option>recruiter</option>
+            <option>podcast / press</option>
+            <option>other</option>
+          </select>
+        </label>
+        <label class="cf-row cf-area">
+          <span class="cf-lbl mono">message</span>
+          <textarea name="message" required rows="5" placeholder="short brief — target type, scope, timeline, or just say hi."></textarea>
+        </label>
+
+        <div class="cf-foot">
+          <button type="submit" class="btn primary" id="cf-send">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span id="cf-btn-txt">send message</span>
+          </button>
+          <span class="cf-or mono">or email directly —</span>
+          <a class="cf-mail mono" href="#" id="directMail"></a>
+        </div>
+        <div class="cf-status mono" id="cf-status" role="status" aria-live="polite"></div>
+      </form>
     </div>
     <div class="sociallist">
       <a class="soc" href="https://github.com/shreyaschavhan" target="_blank" rel="noopener">
@@ -974,9 +1066,9 @@
         <div><div class="k">blog</div><div class="v">notion · security &amp; research</div></div>
         <div style="color:var(--fg-faint)">→</div>
       </a>
-      <a class="soc" href="/cdn-cgi/l/email-protection#f4979c95829c959a879c86918d9587b49399959d98da979b99">
+      <a class="soc" id="socMail" href="#">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <div><div class="k">email</div><div class="v"><span class="__cf_email__" data-cfemail="8ae9e2ebfce2ebe4f9e2f8eff3ebf9caede7ebe3e6a4e9e5e7">[email&#160;protected]</span></div></div>
+        <div><div class="k">email</div><div class="v" id="socMailV">—</div></div>
         <div style="color:var(--fg-faint)">→</div>
       </a>
     </div>
@@ -1024,7 +1116,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
+<script>
   // year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -1172,6 +1264,79 @@
     entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Email — assembled at runtime so CDNs can't rewrite it to "[email protected]"
+  (function () {
+    const u = ['c','h','a','v','h','a','n','s','h','r','e','y','a','s'].join('');
+    const d = ['g','m','a','i','l','.','c','o','m'].join('');
+    const addr = u + String.fromCharCode(64) + d;
+    const setMail = (el, text) => {
+      if (!el) return;
+      el.href = 'mailto:' + addr;
+      if (text === true) el.textContent = addr;
+      else if (typeof text === 'string') el.textContent = text;
+    };
+    setMail(document.getElementById('navMail'));
+    setMail(document.getElementById('directMail'), true);
+    setMail(document.getElementById('socMail'));
+    const sv = document.getElementById('socMailV'); if (sv) sv.textContent = addr;
+    const rm = document.getElementById('resumeMail'); if (rm) rm.textContent = addr;
+  })();
+
+  // Contact form → Web3Forms
+  (function () {
+    const form = document.getElementById('cform');
+    if (!form) return;
+    const btn = document.getElementById('cf-send');
+    const btnTxt = document.getElementById('cf-btn-txt');
+    const status = document.getElementById('cf-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (form.botcheck && form.botcheck.checked) return; // honeypot
+      status.removeAttribute('data-kind');
+      status.textContent = '';
+
+      // simple validation
+      const required = ['name','email','message'];
+      for (const k of required) {
+        const f = form.elements[k];
+        if (!f.value.trim()) {
+          status.textContent = '✗ ' + k + ' is required.';
+          status.setAttribute('data-kind','err');
+          f.focus();
+          return;
+        }
+      }
+
+      btn.setAttribute('disabled','true');
+      btnTxt.textContent = 'sending…';
+      status.textContent = '';
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data,
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.success !== false) {
+          status.textContent = '✓ sent — i\'ll get back within a day or two.';
+          status.setAttribute('data-kind','ok');
+          form.reset();
+          btnTxt.textContent = 'sent ✓';
+          setTimeout(() => { btnTxt.textContent = 'send another'; btn.removeAttribute('disabled'); }, 1500);
+        } else {
+          throw new Error(json.message || 'request failed');
+        }
+      } catch (err) {
+        status.textContent = '✗ couldn\'t send — try emailing me directly?';
+        status.setAttribute('data-kind','err');
+        btnTxt.textContent = 'send message';
+        btn.removeAttribute('disabled');
+      }
+    });
+  })();
 </script>
 </body>
 </html>
